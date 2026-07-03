@@ -1,0 +1,316 @@
+/* ════════════════════════════════════════════════════════════════════════
+   main.css — Pengaturan Utama Halaman (Layout Global, Tipografi, & Reset)
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* Mengimpor jenis huruf (font) dari Google Fonts:
+   - Cormorant Garamond (untuk judul bergaya klasik/serif)
+   - Plus Jakarta Sans (untuk teks biasa/sans-serif yang bersih dan mudah dibaca) */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ── VARIABEL DESAIN (CSS VARIABLES) ──
+   Menampung nilai-nilai dasar desain agar mudah diubah secara global di satu tempat */
+:root {
+  /* Palet Warna Utama Desa */
+  --biru:       #0f3460;       /* Biru tua dominan */
+  --biru-mid:   #1a5276;       /* Biru sedang untuk tombol/navigasi */
+  --biru-light: #2e86c1;       /* Biru terang untuk tautan/elemen aktif */
+  --biru-pale:  #d6eaf8;       /* Biru pucat untuk latar belakang tipis */
+  --emas:       #c9a84c;       /* Emas untuk aksen utama desa */
+  --emas-light: #f0d078;       /* Emas terang untuk teks aksen di background gelap */
+  --putih:      #ffffff;       /* Putih bersih */
+  --krem:       #f5f2eb;       /* Krem lembut untuk background halaman utama */
+  --abu:        #f0f2f5;       /* Abu-abu terang untuk card/elemen pelengkap */
+  --teks:       #1a2332;       /* Biru sangat gelap untuk warna teks utama agar nyaman dibaca */
+  --muted:      #6b7a8d;       /* Abu-abu kebiruan untuk teks tambahan/keterangan kecil */
+  --hijau:      #27ae60;       /* Hijau untuk indikator sukses/badge positif */
+  --merah:      #e74c3c;       /* Merah untuk indikator error/peringatan */
+
+  /* Efek Bayangan (Shadows) - Memberikan efek kedalaman/elevasi pada elemen */
+  --shadow-sm:  0 2px 12px rgba(15,52,96,0.07);   /* Bayangan tipis */
+  --shadow-md:  0 6px 28px rgba(15,52,96,0.11);   /* Bayangan sedang (card biasa) */
+  --shadow-lg:  0 12px 48px rgba(15,52,96,0.16);  /* Bayangan tebal (popup/detail) */
+
+  /* Kelengkungan Sudut Elemen (Border Radius) */
+  --radius-sm:  8px;    /* Sudut melengkung kecil (tombol) */
+  --radius-md:  14px;   /* Sudut melengkung sedang (input/card kecil) */
+  --radius-lg:  20px;   /* Sudut melengkung besar (card utama/bagian section) */
+
+  /* Dimensi & Pengaturan Font */
+  --nav-h:      64px;                                  /* Tinggi navbar atas */
+  --font-display: 'Cormorant Garamond', serif;        /* Font untuk heading/judul */
+  --font-body:    'Plus Jakarta Sans', sans-serif;     /* Font untuk teks paragraf biasa */
+}
+
+/* ── PENGATURAN ULANG DEFAULT (CSS RESET) ──
+   Menyamakan tampilan dasar halaman di semua browser (Chrome, Firefox, Safari) */
+*, *::before, *::after { 
+  box-sizing: border-box; /* Ukuran lebar elemen sudah termasuk padding dan border */
+  margin: 0;              /* Hapus margin bawaan browser */
+  padding: 0;             /* Hapus padding bawaan browser */
+}
+html { 
+  scroll-behavior: smooth; /* Membuat transisi scroll layar menjadi halus saat berpindah section */
+  font-size: 16px;         /* Ukuran font dasar browser */
+}
+body {
+  font-family: var(--font-body); /* Gunakan font tubuh utama */
+  background: var(--krem);       /* Latar belakang halaman krem */
+  color: var(--teks);           /* Warna teks utama */
+  overflow-x: hidden;            /* Cegah halaman bisa di-scroll ke samping kanan-kiri (menghindari layout pecah) */
+  line-height: 1.6;              /* Jarak antar baris teks agar nyaman dibaca */
+}
+img { 
+  max-width: 100%;       /* Gambar tidak akan melebihi lebar kontainernya */
+  display: block;        /* Hilangkan celah kosong kecil di bawah gambar */
+}
+a { 
+  text-decoration: none; /* Hilangkan garis bawah bawaan pada link */
+  color: inherit;        /* Warna link mengikuti warna elemen pembungkusnya */
+}
+ul { 
+  list-style: none;      /* Hilangkan titik/bullet bawaan pada daftar list */
+}
+button { 
+  cursor: pointer;               /* Kursor mouse berubah jadi bentuk tangan saat menunjuk tombol */
+  font-family: var(--font-body);  /* Font tombol menggunakan font tubuh utama */
+}
+
+/* ── GAYA SCROLLBAR BROWSER ──
+   Kustomisasi tampilan scrollbar di sisi kanan halaman (khusus browser berbasis Webkit seperti Chrome/Edge) */
+::-webkit-scrollbar { 
+  width: 6px; /* Lebar tiang scrollbar */
+}
+::-webkit-scrollbar-track { 
+  background: var(--krem); /* Warna background lintasan scrollbar */
+}
+::-webkit-scrollbar-thumb { 
+  background: var(--biru-mid); /* Warna batang scrollbar yang digeser */
+  border-radius: 3px;          /* Membuat ujung batang melengkung */
+}
+
+/* ── WRAPPER HALAMAN UTAMA ── */
+.page-content { 
+  padding-top: var(--nav-h); /* Berikan jarak di atas halaman setinggi navbar agar konten tidak tertutup navbar */
+}
+
+/* ── SECTION (BAGIAN HALAMAN) ── */
+section { 
+  padding: 88px 5%; /* Padding atas-bawah 88px, kanan-kiri 5% agar konten tidak mepet ke tepi layar */
+}
+
+/* Label kecil di atas judul section (contoh: "INFORMASI TERKINI") */
+.stag {
+  display: inline-block;
+  font-size: 11px; 
+  font-weight: 700;
+  letter-spacing: 0.14em; /* Jarak antar huruf diperlebar */
+  text-transform: uppercase; /* Paksa huruf menjadi kapital */
+  color: var(--biru-light); 
+  margin-bottom: 10px;
+}
+
+/* Judul Utama Section (Gaya Serif Cantik) */
+.stitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3vw, 2.7rem); /* Ukuran dinamis: otomatis mengecil di HP dan membesar di desktop */
+  color: var(--biru); 
+  line-height: 1.2; 
+  margin-bottom: 12px;
+}
+
+/* Sub-judul atau Deskripsi Singkat di bawah Judul Section */
+.ssub {
+  font-size: 15px; 
+  color: var(--muted);
+  max-width: 540px; 
+  line-height: 1.75;
+}
+
+/* Pembungkus judul bagian halaman */
+.section-header { 
+  margin-bottom: 48px; 
+}
+
+/* ── NAVIGASI REJEKI / BREADCRUMB ──
+   Menunjukkan lokasi posisi halaman saat ini (contoh: Beranda > Statistik) */
+.breadcrumb {
+  display: flex; 
+  align-items: center; 
+  gap: 8px; /* Jarak antar elemen breadcrumb */
+  font-size: 13px; 
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+.breadcrumb a { 
+  color: var(--biru-light); 
+}
+.breadcrumb a:hover { 
+  text-decoration: underline; /* Garis bawah saat kursor menunjuk link */
+}
+.breadcrumb span { 
+  color: var(--muted); 
+}
+
+/* ── TOMBOL-TOMBOL (BUTTONS) ── */
+
+/* Tombol Utama (Warna Emas dengan Efek Bayangan Premium) */
+.btn-primary {
+  display: inline-block;
+  background: var(--emas); 
+  color: var(--biru);
+  padding: 12px 28px; 
+  border-radius: var(--radius-sm);
+  font-weight: 700; 
+  font-size: 14px;
+  transition: all .2s; /* Transisi halus saat di-hover */
+  box-shadow: 0 4px 16px rgba(201,168,76,0.3); /* Bayangan emas transparan */
+}
+.btn-primary:hover { 
+  background: var(--emas-light); 
+  transform: translateY(-2px); /* Tombol sedikit bergeser naik ke atas saat ditunjuk */
+}
+
+/* Tombol Garis Tepi (Outline Button) */
+.btn-outline {
+  display: inline-block;
+  border: 2px solid var(--biru); 
+  color: var(--biru);
+  padding: 10px 24px; 
+  border-radius: var(--radius-sm);
+  font-weight: 600; 
+  font-size: 14px;
+  transition: all .2s;
+}
+.btn-outline:hover { 
+  background: var(--biru); 
+  color: var(--putih); 
+}
+
+/* Tombol Transparan untuk Latar Belakang Gelap (Ghost Button) */
+.btn-ghost-white {
+  display: inline-block;
+  border: 2px solid rgba(255,255,255,0.45); 
+  color: var(--putih);
+  padding: 11px 26px; 
+  border-radius: var(--radius-sm);
+  font-weight: 600; 
+  font-size: 14px;
+  transition: all .2s;
+}
+.btn-ghost-white:hover { 
+  border-color: var(--putih); 
+  background: rgba(255,255,255,0.1); /* Latar belakang putih sangat transparan */
+}
+
+/* ── LENCANA / TAG KATEGORI (BADGES) ── */
+.badge {
+  display: inline-block; 
+  padding: 3px 10px; 
+  border-radius: 20px;
+  font-size: 11px; 
+  font-weight: 700; 
+  letter-spacing: 0.04em;
+}
+.badge-emas  { background: var(--emas); color: var(--biru); }
+.badge-biru  { background: var(--biru); color: var(--putih); }
+.badge-light { background: rgba(46,134,193,0.12); color: var(--biru-light); }
+.badge-green { background: rgba(39,174,96,0.12); color: var(--hijau); }
+.badge-red   { background: rgba(231,76,60,0.1); color: var(--merah); }
+
+/* ── KELAS PEMBANTU (UTILITIES) ── */
+.text-center { text-align: center; }
+.text-muted  { color: var(--muted); }
+.mt-8  { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mt-32 { margin-top: 32px; }
+.mt-48 { margin-top: 48px; }
+
+/* ── ANIMASI CSS (KEYFRAMES & CLASSES) ── */
+
+/* Definisi Gerakan Animasi */
+@keyframes fadeUp { 
+  from { opacity: 0; transform: translateY(24px); } /* Mulai dari transparan dan agak di bawah */
+  to { opacity: 1; transform: translateY(0); }     /* Berakhir terlihat jelas di posisi semula */
+}
+@keyframes fadeIn { 
+  from { opacity: 0; } 
+  to { opacity: 1; } 
+}
+@keyframes slideIn { 
+  from { opacity: 0; transform: translateX(-20px); } 
+  to { opacity: 1; transform: translateX(0); } 
+}
+
+/* Kelas Efek Scroll Reveal: elemen disembunyikan terlebih dahulu */
+.fu { 
+  opacity: 0; 
+  transform: translateY(20px); 
+  transition: opacity .6s ease, transform .6s ease; /* Transisi halus durasi 0.6 detik */
+}
+/* Kelas aktif yang dipasang oleh JavaScript ketika elemen masuk layar */
+.fu.vis { 
+  opacity: 1; 
+  transform: translateY(0); 
+}
+/* Variasi Delay untuk efek muncul beruntun (staggered) */
+.fu-d1 { transition-delay: .1s; }
+.fu-d2 { transition-delay: .2s; }
+.fu-d3 { transition-delay: .3s; }
+.fu-d4 { transition-delay: .4s; }
+
+/* Animasi khusus untuk bagian Hero langsung aktif saat halaman pertama dimuat */
+.hero-anim { 
+  animation: fadeUp .9s ease both; 
+}
+
+/* ── FOOTER (BAGIAN BAWAH WEB) ── */
+footer {
+  background: #071d38; /* Biru super gelap */
+  color: rgba(255,255,255,0.5);
+  text-align: center; 
+  padding: 30px 5%;
+  font-size: 12px; 
+  line-height: 1.8;
+  border-top: 1px solid rgba(201,168,76,0.2); /* Garis batas atas tipis warna emas transparan */
+}
+footer strong { 
+  color: var(--emas-light); 
+}
+.footer-links {
+  display: flex; 
+  justify-content: center; 
+  gap: 20px;
+  flex-wrap: wrap; /* Susun link ke bawah jika layar sempit */
+  margin-bottom: 14px;
+}
+.footer-links a { 
+  color: rgba(255,255,255,0.45); 
+  font-size: 12px; 
+  transition: color .2s; 
+}
+.footer-links a:hover { 
+  color: var(--emas-light); 
+}
+
+/* ── OVERRIDE UNTUK SECTION BERLATAR GELAP (DARK SECTION) ── */
+.section-dark { 
+  background: var(--biru); 
+}
+.section-dark .stag  { color: var(--emas-light); }
+.section-dark .stitle { color: var(--putih); }
+.section-dark .ssub  { color: rgba(255,255,255,0.6); }
+
+/* ── MEDIA QUERIES (DESAIN RESPONSIF HP/TABLET) ── */
+
+/* Responsif: Layar Handphone (Lebar maksimal 768px) */
+@media (max-width: 768px) {
+  section { padding: 64px 5%; } /* Kurangi padding section agar muat di layar sempit */
+  .stitle { font-size: 1.8rem; }  /* Perkecil ukuran judul utama */
+  .hide-mobile { display: none !important; } /* Sembunyikan elemen berkelas ini di HP */
+}
+
+/* Responsif: Layar Desktop (Lebar minimal 769px) */
+@media (min-width: 769px) {
+  .hide-desktop { display: none !important; } /* Sembunyikan elemen berkelas ini di Desktop */
+}

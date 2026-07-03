@@ -1,0 +1,16 @@
+# Berkas Sistem Operasi
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor dan IDE (VS Code, WebStorm, dsb)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.project
+.settings/

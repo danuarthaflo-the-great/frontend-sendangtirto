@@ -1,0 +1,260 @@
+/* ════════════════════════════════════════════════════════════════════════
+   navbar.css — Gaya Desain Navbar Desktop & Menu Navigasi Mobile (Drawer)
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* ── WADAH NAVBAR UTAMA (NAVIGATION BAR) ── */
+.navbar {
+  position: fixed; /* Posisi melayang tetap di atas layar walaupun halaman di-scroll */
+  top: 0; 
+  width: 100%; 
+  z-index: 999; /* Memastikan navbar berada di tumpukan paling atas dibanding elemen lain */
+  height: var(--nav-h); /* Tinggi navbar mengikuti variabel '--nav-h' (64px) */
+  background: rgba(15, 52, 96, 0.97); /* Warna biru gelap semi-transparan */
+  backdrop-filter: blur(10px); /* Efek blur kaca buram di belakang navbar */
+  border-bottom: 1px solid rgba(201, 168, 76, 0.25); /* Garis batas bawah warna emas transparan */
+  display: flex; 
+  align-items: center; /* Meratakan konten di tengah secara vertikal */
+  padding: 0 5%; /* Jarak konten dari tepi kanan-kiri navbar */
+  transition: background .3s, box-shadow .3s; /* Animasi transisi saat berganti warna background/bayangan */
+}
+
+/* Kondisi khusus navbar saat halaman di-scroll (ditambahkan oleh JavaScript) */
+.navbar.scrolled {
+  background: rgba(15, 52, 96, 1); /* Background berubah menjadi biru pekat sepenuhnya */
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25); /* Memberi bayangan gelap di bawah navbar */
+}
+
+/* ── LOGO & NAMA DESA (BRAND) ── */
+.nav-brand {
+  display: flex; 
+  align-items: center; 
+  gap: 12px; /* Jarak antara logo Sleman dengan tulisan teks */
+  flex-shrink: 0; /* Mencegah logo mengecil jika layar menyempit */
+  text-decoration: none;
+}
+
+/* Lingkaran pembungkus Logo Sleman */
+.nav-emblem {
+  width: 42px; 
+  height: 42px; 
+  border-radius: 50%; /* Membuat gambar logo berbentuk bulat sempurna */
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  font-family: var(--font-display); 
+  font-size: 20px;
+  font-weight: 700; 
+  color: var(--biru);
+  flex-shrink: 0;
+  overflow: hidden; /* Sembunyikan bagian luar gambar jika melebihi lingkaran */
+}
+.nav-emblem img {
+  width: 100%; 
+  height: 100%;
+  object-fit: cover; /* Menyesuaikan gambar agar pas memenuhi lingkaran emblem */
+}
+
+/* Area Teks Nama Desa */
+.nav-brand-text { 
+  color: var(--putih); 
+}
+.nav-brand-text strong {
+  display: block; 
+  font-size: 13.5px; 
+  font-weight: 700; 
+  line-height: 1.2;
+}
+.nav-brand-text small {
+  display: block; 
+  font-size: 10px; 
+  font-weight: 300;
+  color: rgba(255,255,255,0.55); 
+  letter-spacing: 0.05em; /* Renggangkan jarak antar huruf */
+}
+
+/* ── LINK NAVIGASI VERSI DESKTOP ── */
+.nav-menu {
+  display: flex; 
+  align-items: center; 
+  gap: 6px; /* Jarak antar tombol menu */
+  margin-left: auto; /* Mendorong seluruh menu navigasi ke sebelah kanan halaman */
+}
+.nav-menu a {
+  color: rgba(255,255,255,0.75); /* Warna teks link putih transparan */
+  font-size: 13px; 
+  font-weight: 500;
+  padding: 6px 12px; 
+  border-radius: 6px;
+  transition: color .2s, background .2s;
+  white-space: nowrap; /* Mencegah teks turun ke baris baru */
+}
+/* Efek saat link ditunjuk mouse (hover) atau sedang berada di halaman aktif (active) */
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--emas-light); /* Warna teks berubah jadi emas terang */
+  background: rgba(255,255,255,0.07); /* Latar belakang kotak putih transparan tipis */
+}
+
+/* Tombol Aksi Utama (CTA - Call To Action) di Navbar */
+.nav-menu .nav-cta {
+  margin-left: 8px;
+  background: var(--emas); 
+  color: var(--biru);
+  padding: 8px 18px; 
+  border-radius: 7px;
+  font-weight: 700; 
+  font-size: 13px;
+  border: none; 
+  transition: background .2s;
+}
+.nav-menu .nav-cta:hover {
+  background: var(--emas-light); 
+  color: var(--biru);
+}
+
+/* ── TOMBOL HAMBURGER MOBILE (NAV TOGGLE) ── */
+.nav-toggle {
+  display: none; /* Disembunyikan secara default di layar desktop */
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center; 
+  gap: 5px; /* Jarak antar baris garis hamburger */
+  width: 40px; 
+  height: 40px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px; 
+  cursor: pointer;
+  margin-left: auto; /* Mendorong tombol menu mobile ke sisi paling kanan */
+  transition: background .2s;
+}
+.nav-toggle:hover { 
+  background: rgba(255,255,255,0.15); 
+}
+
+/* Garis horizontal pembentuk hamburger */
+.nav-toggle span {
+  display: block; 
+  width: 20px; 
+  height: 2px;
+  background: var(--putih); 
+  border-radius: 2px;
+  transition: transform .3s, opacity .3s, width .3s; /* Animasi perubahan bentuk menjadi silang (X) */
+  transform-origin: center;
+}
+
+/* Perubahan bentuk garis hamburger saat menu mobile terbuka (class '.open' dipicu oleh JS) */
+.nav-toggle.open span:nth-child(1) { 
+  transform: translateY(7px) rotate(45deg); /* Garis atas berputar 45 derajat searah jarum jam */
+}
+.nav-toggle.open span:nth-child(2) { 
+  opacity: 0; 
+  width: 0; /* Garis tengah menghilang */
+}
+.nav-toggle.open span:nth-child(3) { 
+  transform: translateY(-7px) rotate(-45deg); /* Garis bawah berputar 45 derajat berlawanan jarum jam */
+}
+
+/* ── LACI MENU MOBILE (DRAWER) ── */
+.nav-drawer {
+  position: fixed;
+  top: var(--nav-h); /* Muncul tepat di bawah batas tinggi navbar */
+  left: 0; 
+  right: 0;
+  background: rgba(10, 30, 60, 0.98); /* Latar belakang biru sangat gelap */
+  backdrop-filter: blur(12px); /* Efek buram */
+  border-bottom: 1px solid rgba(201,168,76,0.2); /* Batas garis bawah warna emas */
+  padding: 12px 5% 20px;
+  z-index: 998; /* Di bawah navbar sedikit */
+
+  /* Animasi bawaan untuk menyembunyikan laci ke atas halaman */
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none; /* Mencegah elemen bisa diklik saat disembunyikan */
+  transition: transform .3s ease, opacity .3s ease; /* Transisi pembukaan menu */
+}
+
+/* Kondisi ketika laci menu mobile aktif terbuka (class '.open' dipicu oleh JS) */
+.nav-drawer.open {
+  transform: translateY(0); /* Laci turun ke bawah ke posisi aslinya */
+  opacity: 1;
+  pointer-events: all; /* Mengaktifkan klik pada link menu */
+}
+
+/* Gaya Link Menu di dalam Laci Mobile */
+.nav-drawer a {
+  display: flex; 
+  align-items: center; 
+  gap: 10px; /* Jarak antara ikon menu dengan teks */
+  color: rgba(255,255,255,0.8);
+  font-size: 15px; 
+  font-weight: 500;
+  padding: 13px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.06); /* Garis pemisah tipis horizontal antar menu */
+  transition: color .2s, padding-left .2s;
+}
+
+/* Efek saat link di laci ditunjuk mouse (hover) atau aktif */
+.nav-drawer a:hover,
+.nav-drawer a.active {
+  color: var(--emas-light);
+  padding-left: 16px; /* Memberikan efek bergeser halus ke kanan saat disorot */
+}
+
+/* Penyeimbang ukuran & letak ikon di sebelah kiri teks */
+.nav-drawer a i.drawer-icon {
+  font-size: 16px; 
+  width: 20px; 
+  text-align: center;
+  color: var(--emas-light); /* Selaraskan warna icon dengan warna emas */
+}
+
+/* Tombol Aksi di dalam Laci Mobile */
+.nav-drawer .drawer-cta {
+  display: block; 
+  text-align: center;
+  margin-top: 14px;
+  background: var(--emas); 
+  color: var(--biru);
+  padding: 13px; 
+  border-radius: 10px;
+  font-weight: 700; 
+  font-size: 15px;
+  transition: background .2s;
+  border-bottom: none; /* Hilangkan garis pemisah bawah */
+}
+.nav-drawer .drawer-cta:hover {
+  background: var(--emas-light);
+  padding-left: 10px; /* Batalkan efek geser kanan khusus tombol ini */
+}
+
+/* ── EFEK LATAR BELAKANG GELAP (OVERLAY) ──
+   Menghitamkan layar di belakang menu laci mobile agar pengguna fokus pada menu */
+.nav-overlay {
+  position: fixed; 
+  inset: 0; /* Memenuhi seluruh layar (atas, bawah, kanan, kiri = 0) */
+  z-index: 997;
+  background: rgba(0,0,0,0.4); /* Warna hitam transparan */
+  opacity: 0; 
+  pointer-events: none;
+  transition: opacity .3s;
+}
+/* Kondisi aktif overlay (dipicu oleh JS) */
+.nav-overlay.show { 
+  opacity: 1; 
+  pointer-events: all; 
+}
+
+/* ── PENGATURAN LAYANAN MEDIA QUERIES (RESPONSIVE NAVBAR) ── */
+
+/* Ketika lebar layar berukuran 860px kebawah (Tablet/HP) */
+@media (max-width: 860px) {
+  .nav-menu { display: none; } /* Sembunyikan menu horizontal desktop */
+  .nav-toggle { display: flex; } /* Tampilkan tombol hamburger */
+}
+
+/* Ketika lebar layar berukuran 861px ke atas (Laptop/Desktop) */
+@media (min-width: 861px) {
+  .nav-drawer { display: none !important; } /* Pastikan laci menu mobile selalu tertutup/hancur */
+  .nav-overlay { display: none !important; } /* Pastikan overlay gelap hancur */
+}

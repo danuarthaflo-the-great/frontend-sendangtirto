@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Hubungi Kami – Kalurahan Sendangtirto</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <style>
+    /* ==========================================================================
+       main.css
+       ========================================================================== */
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --biru:       #0f3460;
+      --biru-mid:   #1a5276;
+      --biru-light: #2e86c1;
+      --biru-pale:  #d6eaf8;
+      --emas:       #c9a84c;
+      --emas-light: #f0d078;
+      --putih:      #ffffff;
+      --krem:       #f5f2eb;
+      --abu:        #f0f2f5;
+      --teks:       #1a2332;
+      --muted:      #6b7a8d;
+      --hijau:      #27ae60;
+      --merah:      #e74c3c;
+
+      --shadow-sm:  0 2px 12px rgba(15,52,96,0.07);
+      --shadow-md:  0 6px 28px rgba(15,52,96,0.11);
+      --shadow-lg:  0 12px 48px rgba(15,52,96,0.16);
+
+      --radius-sm:  8px;
+      --radius-md:  14px;
+      --radius-lg:  20px;
+
+      --nav-h:      64px;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body:    'Plus Jakarta Sans', sans-serif;
+    }
+
+    *, *::before, *::after { 
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html { 
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    body {
+      font-family: var(--font-body);
+      background: var(--krem);
+      color: var(--teks);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    img { 
+      max-width: 100%;
+      display: block;
+    }
+    a { 
+      text-decoration: none;
+      color: inherit;
+    }
+    ul { 
+      list-style: none;
+    }
+    button { 
+      cursor: pointer;
+      font-family: var(--font-body);
+    }
+
+    ::-webkit-scrollbar { 
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track { 
+      background: var(--krem);
+    }
+    ::-webkit-scrollbar-thumb { 
+      background: var(--biru-mid);
+      border-radius: 3px;
+    }
+
+    .page-content { 
+      padding-top: var(--nav-h);
+    }
+
+    section { 
+      padding: 88px 5%;
+    }
+
+    .stag {
+      display: inline-block;
+      font-size: 11px; 
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--biru-light); 
+      margin-bottom: 10px;
+    }
+
+    .stitle {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      color: var(--biru); 
+      line-height: 1.2; 
+      margin-bottom: 12px;
+    }
+
+    .ssub {
+      font-size: 15px; 
+      color: var(--muted);
+      max-width: 540px; 
+      line-height: 1.75;
+    }
+
+    .section-header { 
+      margin-bottom: 48px; 
+    }
+
+    .breadcrumb {
+      display: flex; 
+      align-items: center; 
+      gap: 8px;
+      font-size: 13px; 
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .breadcrumb a { 
+      color: var(--biru-light); 
+    }
+    .breadcrumb a:hover { 
+      text-decoration: underline;
+    }
+    .breadcrumb span { 
+      color: var(--muted); 
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--emas); 
+      color: var(--biru);
+      padding: 12px 28px; 
+      border-radius: var(--radius-sm);
+      font-weight: 700; 
+      font-size: 14px;
+      transition: all .2s;
+      box-shadow: 0 4px 16px rgba(201,168,76,0.3);
+    }
+    .btn-primary:hover { 
+      background: var(--emas-light); 
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid var(--biru); 
+      color: var(--biru);
+      padding: 10px 24px; 
+      border-radius: var(--radius-sm);
+      font-weight: 600; 
+      font-size: 14px;
+      transition: all .2s;
+    }
+    .btn-outline:hover { 
+      background: var(--biru); 
+      color: var(--putih); 
+    }
+
+    .btn-ghost-white {
+      display: inline-block;
+      border: 2px solid rgba(255,255,255,0.45); 
+      color: var(--putih);
+      padding: 11px 26px; 
+      border-radius: var(--radius-sm);
+      font-weight: 600; 
+      font-size: 14px;
+      transition: all .2s;
+    }
+    .btn-ghost-white:hover { 
+      border-color: var(--putih); 
+      background: rgba(255,255,255,0.1);
+    }
+
+    .badge {
+      display: inline-block; 
+      padding: 3px 10px; 
+      border-radius: 20px;
+      font-size: 11px; 
+      font-weight: 700; 
+      letter-spacing: 0.04em;
+    }
+    .badge-emas  { background: var(--emas); color: var(--biru); }
+    .badge-biru  { background: var(--biru); color: var(--putih); }
+    .badge-light { background: rgba(46,134,193,0.12); color: var(--biru-light); }
+    .badge-green { background: rgba(39,174,96,0.12); color: var(--hijau); }
+    .badge-red   { background: rgba(231,76,60,0.1); color: var(--merah); }
+
+    .text-center { text-align: center; }
+    .text-muted  { color: var(--muted); }
+    .mt-8  { margin-top: 8px; }
+    .mt-16 { margin-top: 16px; }
+    .mt-24 { margin-top: 24px; }
+    .mt-32 { margin-top: 32px; }
+    .mt-48 { margin-top: 48px; }
+
+    @keyframes fadeUp { 
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn { 
+      from { opacity: 0; } 
+      to { opacity: 1; } 
+    }
+    @keyframes slideIn { 
+      from { opacity: 0; transform: translateX(-20px); } 
+      to { opacity: 1; transform: translateX(0); } 
+    }
+
+    .fu { 
+      opacity: 0; 
+      transform: translateY(20px); 
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fu.vis { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+    .fu-d1 { transition-delay: .1s; }
+    .fu-d2 { transition-delay: .2s; }
+    .fu-d3 { transition-delay: .3s; }
+    .fu-d4 { transition-delay: .4s; }
+
+    .hero-anim { 
+      animation: fadeUp .9s ease both; 
+    }
+
+    footer {
+      background: #071d38;
+      color: rgba(255,255,255,0.5);
+      text-align: center; 
+      padding: 30px 5%;
+      font-size: 12px; 
+      line-height: 1.8;
+      border-top: 1px solid rgba(201,168,76,0.2);
+    }
+    footer strong { 
+      color: var(--emas-light); 
+    }
+    .footer-links {
+      display: flex; 
+      justify-content: center; 
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .footer-links a { 
+      color: rgba(255,255,255,0.45); 
+      font-size: 12px; 
+      transition: color .2s; 
+    }
+    .footer-links a:hover { 
+      color: var(--emas-light); 
+    }
+
+    .section-dark { 
+      background: var(--biru); 
+    }
+    .section-dark .stag  { color: var(--emas-light); }
+    .section-dark .stitle { color: var(--putih); }
+    .section-dark .ssub  { color: rgba(255,255,255,0.6); }
+
+    @media (max-width: 768px) {
+      section { padding: 64px 5%; }
+      .stitle { font-size: 1.8rem; }
+      .hide-mobile { display: none !important; }
+    }
+    @media (min-width: 769px) {
+      .hide-desktop { display: none !important; }
+    }
+
+    /* ==========================================================================
+       navbar.css
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 0; 
+      width: 100%; 
+      z-index: 999;
+      height: var(--nav-h);
+      background: rgba(15, 52, 96, 0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+      display: flex; 
+      align-items: center;
+      padding: 0 5%;
+      transition: background .3s, box-shadow .3s;
+    }
+    .navbar.scrolled {
+      background: rgba(15, 52, 96, 1);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+    }
+    .nav-brand {
+      display: flex; 
+      align-items: center; 
+      gap: 12px;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .nav-emblem {
+      width: 42px; 
+      height: 42px; 
+      border-radius: 50%;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      font-family: var(--font-display); 
+      font-size: 20px;
+      font-weight: 700; 
+      color: var(--biru);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .nav-emblem img {
+      width: 100%; 
+      height: 100%;
+      object-fit: cover;
+    }
+    .nav-brand-text { 
+      color: var(--putih); 
+    }
+    .nav-brand-text strong {
+      display: block; 
+      font-size: 13.5px; 
+      font-weight: 700; 
+      line-height: 1.2;
+    }
+    .nav-brand-text small {
+      display: block; 
+      font-size: 10px; 
+      font-weight: 300;
+      color: rgba(255,255,255,0.55); 
+      letter-spacing: 0.05em;
+    }
+    .nav-menu {
+      display: flex; 
+      align-items: center; 
+      gap: 6px;
+      margin-left: auto;
+    }
+    .nav-menu a {
+      color: rgba(255,255,255,0.75);
+      font-size: 13px; 
+      font-weight: 500;
+      padding: 6px 12px; 
+      border-radius: 6px;
+      transition: color .2s, background .2s;
+      white-space: nowrap;
+    }
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--emas-light);
+      background: rgba(255,255,255,0.07);
+    }
+    .nav-menu .nav-cta {
+      margin-left: 8px;
+      background: var(--emas); 
+      color: var(--biru);
+      padding: 8px 18px; 
+      border-radius: 7px;
+      font-weight: 700; 
+      font-size: 13px;
+      border: none; 
+      transition: background .2s;
+    }
+    .nav-menu .nav-cta:hover {
+      background: var(--emas-light); 
+      color: var(--biru);
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column; 
+      justify-content: center;
+      align-items: center; 
+      gap: 5px;
+      width: 40px; 
+      height: 40px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px; 
+      cursor: pointer;
+      margin-left: auto;
+      transition: background .2s;
+    }
+    .nav-toggle:hover { 
+      background: rgba(255,255,255,0.15); 
+    }
+    .nav-toggle span {
+      display: block; 
+      width: 20px; 
+      height: 2px;
+      background: var(--putih); 
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s, width .3s;
+      transform-origin: center;
+    }
+    .nav-toggle.open span:nth-child(1) { 
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav-toggle.open span:nth-child(2) { 
+      opacity: 0; 
+      width: 0;
+    }
+    .nav-toggle.open span:nth-child(3) { 
+      transform: translateY(-7px) rotate(-45deg);
+    }
+    .nav-drawer {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; 
+      right: 0;
+      background: rgba(10, 30, 60, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      padding: 12px 5% 20px;
+      z-index: 998;
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+    .nav-drawer.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+    .nav-drawer a {
+      display: flex; 
+      align-items: center; 
+      gap: 10px;
+      color: rgba(255,255,255,0.8);
+      font-size: 15px; 
+      font-weight: 500;
+      padding: 13px 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color .2s, padding-left .2s;
+    }
+    .nav-drawer a:hover,
+    .nav-drawer a.active {
+      color: var(--emas-light);
+      padding-left: 16px;
+    }
+    .nav-drawer a i.drawer-icon {
+      font-size: 16px; 
+      width: 20px; 
+      text-align: center;
+      color: var(--emas-light);
+    }
+    .nav-drawer .drawer-cta {
+      display: block; 
+      text-align: center;
+      margin-top: 14px;
+      background: var(--emas); 
+      color: var(--biru);
+      padding: 13px; 
+      border-radius: 10px;
+      font-weight: 700; 
+      font-size: 15px;
+      transition: background .2s;
+      border-bottom: none;
+    }
+    .nav-drawer .drawer-cta:hover {
+      background: var(--emas-light);
+      padding-left: 10px;
+    }
+    .nav-overlay {
+      position: fixed; 
+      inset: 0;
+      z-index: 997;
+      background: rgba(0,0,0,0.4);
+      opacity: 0; 
+      pointer-events: none;
+      transition: opacity .3s;
+    }
+    .nav-overlay.show { 
+      opacity: 1; 
+      pointer-events: all; 
+    }
+    @media (max-width: 860px) {
+      .nav-menu { display: none; }
+      .nav-toggle { display: flex; }
+    }
+    @media (min-width: 861px) {
+      .nav-drawer { display: none !important; }
+      .nav-overlay { display: none !important; }
+    }
+
+    /* ==========================================================================
+       components.css
+       ========================================================================== */
+    .licon {
+      width: 50px; 
+      height: 50px; 
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--biru), var(--biru-light));
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      font-size: 22px; 
+      margin-bottom: 16px;
+    }
+    .licon i {
+      color: var(--emas-light);
+    }
+
+    .page-hero {
+      background: linear-gradient(135deg, var(--biru) 0%, var(--biru-mid) 100%);
+      padding: 72px 5% 56px; 
+      position: relative; 
+      overflow: hidden;
+    }
+    .page-hero::after {
+      content: ''; 
+      position: absolute; 
+      bottom: 0; 
+      left: 0; 
+      right: 0; 
+      height: 48px;
+      background: linear-gradient(to top, var(--krem), transparent);
+    }
+    .page-hero-bg {
+      position: absolute; 
+      inset: 0; 
+      opacity: 0.04;
+      background-image:
+        repeating-linear-gradient(0deg,  transparent, transparent 40px, #fff 40px, #fff 41px),
+        repeating-linear-gradient(90deg, transparent, transparent 40px, #fff 40px, #fff 41px);
+      pointer-events: none;
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem); 
+      color: var(--putih); 
+      line-height: 1.2;
+      margin-bottom: 10px; 
+      position: relative; 
+      z-index: 1;
+    }
+    .page-hero p { 
+      font-size: 15px; 
+      color: rgba(255,255,255,0.7); 
+      max-width: 500px; 
+      position: relative; 
+      z-index: 1; 
+    }
+
+    .kontak-grid { 
+      display: grid; 
+      grid-template-columns: 1fr 1.2fr; 
+      gap: 48px; 
+    }
+    @media (max-width: 700px) { 
+      .kontak-grid { grid-template-columns: 1fr; } 
+    }
+    .kinfo h3 { 
+      font-family: var(--font-display); 
+      font-size: 1.5rem; 
+      color: var(--biru); 
+      margin-bottom: 24px; 
+    }
+    .krow { 
+      display: flex; 
+      gap: 16px; 
+      margin-bottom: 18px; 
+      align-items: flex-start; 
+    }
+    .kicon {
+      width: 40px; 
+      height: 40px; 
+      border-radius: 11px;
+      background: var(--biru); 
+      color: var(--emas);
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      font-size: 16px; 
+      flex-shrink: 0;
+    }
+    .kicon i {
+      color: var(--emas);
+    }
+    .krow div h5 { 
+      font-size: 12px; 
+      font-weight: 600; 
+      color: var(--muted); 
+      margin-bottom: 2px; 
+    }
+    .krow div p { 
+      font-size: 14px; 
+      color: var(--biru); 
+      font-weight: 500; 
+    }
+
+    .kform {
+      background: var(--putih); 
+      border-radius: var(--radius-lg);
+      padding: 32px; 
+      box-shadow: var(--shadow-md);
+    }
+    .kform h3 { 
+      font-family: var(--font-display); 
+      font-size: 1.3rem; 
+      color: var(--biru); 
+      margin-bottom: 22px; 
+    }
+
+    .fg { 
+      margin-bottom: 16px; 
+    }
+    .fg label {
+      display: block; 
+      font-size: 12px; 
+      font-weight: 700;
+      color: var(--biru); 
+      margin-bottom: 6px; 
+      letter-spacing: 0.04em;
+    }
+    .fg input, .fg textarea, .fg select {
+      width: 100%; 
+      padding: 11px 14px; 
+      border-radius: 10px;
+      border: 1.5px solid rgba(15,52,96,0.15);
+      background: var(--krem); 
+      font-family: var(--font-body);
+      font-size: 13px; 
+      color: var(--teks); 
+      outline: none;
+      transition: border-color .2s;
+    }
+    .fg input:focus, .fg textarea:focus, .fg select:focus { 
+      border-color: var(--biru-light); 
+    }
+    .fg textarea { 
+      resize: vertical; 
+      min-height: 100px; 
+    }
+    .fg-row { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 14px; 
+    }
+
+    .fsub {
+      width: 100%; 
+      background: var(--biru); 
+      color: var(--putih);
+      border: none; 
+      padding: 12px; 
+      border-radius: 10px;
+      font-weight: 700; 
+      font-size: 14px; 
+      transition: background .2s;
+    }
+    .fsub:hover { 
+      background: var(--biru-mid); 
+    }
+    .fsub i {
+      margin-left: 6px;
+    }
+
+    /* ==========================================================================
+       Custom Kontak Page styling
+       ========================================================================== */
+    .error-msg {
+      color: #dc2626;
+      font-size: 12px;
+      margin-top: 4px;
+      display: none;
+    }
+    .invalid {
+      border-color: #dc2626 !important;
+      background-color: #fef2f2 !important;
+    }
+    .success-alert {
+      background-color: #dcfce7;
+      color: #15803d;
+      padding: 12px;
+      border-radius: 4px;
+      text-align: center;
+      margin-bottom: 15px;
+      display: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="nav-brand" href="beranda-copy.html">
+    <div class="nav-emblem">
+      <img src="../img/logo-sleman.jpg" alt="Logo Sleman">
+    </div>
+    <div class="nav-brand-text">
+      <strong>Kalurahan Sendangtirto</strong>
+      <small>Kapanewon Berbah · Kab. Sleman · DIY</small>
+    </div>
+  </a>
+
+  <ul class="nav-menu">
+    <li><a href="beranda-copy.html">Beranda</a></li>
+    <li><a href="../statistik.php">Statistik</a></li>
+    <li><a href="../struktur.php">Struktur</a></li>
+    <li><a href="../layanan.php">Layanan</a></li>
+    <li><a href="../berita.php">Berita</a></li>
+    <li><a href="pengumuman-copy.html">Pengumuman</a></li>
+    <li><a href="kontak-copy.html" class="active">Kontak</a></li>
+    <li><a href="#" onclick="bukaLayananOnline(event)" class="nav-cta" style="display: inline-block;">Layanan Online</a></li>
+  </ul>
+
+  <button class="nav-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-drawer">
+  <a href="beranda-copy.html"><i class="fa-solid fa-house drawer-icon"></i> Beranda</a>
+  <a href="../statistik.php"><i class="fa-solid fa-chart-column drawer-icon"></i> Statistik Penduduk</a>
+  <a href="../struktur.php"><i class="fa-solid fa-building-columns drawer-icon"></i> Struktur Organisasi</a>
+  <a href="../layanan.php"><i class="fa-solid fa-gear drawer-icon"></i> Layanan</a>
+  <a href="../berita.php"><i class="fa-solid fa-newspaper drawer-icon"></i> Berita & Kegiatan</a>
+  <a href="pengumuman-copy.html"><i class="fa-solid fa-bullhorn drawer-icon"></i> Pengumuman</a>
+  <a href="kontak-copy.html" class="active"><i class="fa-solid fa-location-dot drawer-icon"></i> Kontak</a>
+  <a href="#" onclick="bukaLayananOnline(event)" class="drawer-cta"><i class="fa-solid fa-desktop"></i> Layanan Online</a>
+</div>
+<div class="nav-overlay"></div>
+
+<div class="page-content">
+
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="hero-anim">
+      <span class="stag" style="color:var(--emas-light)"><i class="fa-solid fa-location-dot"></i> Pusat Bantuan</span>
+      <h1>Hubungi Kami</h1>
+      <p>Kirimkan pertanyaan, pengaduan, atau aspirasi Anda langsung kepada Pemerintah Kalurahan Sendangtirto.</p>
+    </div>
+  </div>
+
+  <section style="background:var(--putih)">
+    <div class="breadcrumb fu">
+      <a href="beranda-copy.html">Beranda</a><span>›</span><span>Kontak</span>
+    </div>
+
+    <div class="kontak-grid" style="margin-top: 32px;">
+      <div class="kinfo fu">
+        <h3>Informasi Kontak Resmi</h3>
+        <div class="krow"><div class="kicon"><i class="fa-solid fa-location-dot"></i></div><div><h5>ALAMAT</h5><p>Jl. Berbah KM 2, Sendangtirto,<br/>Kec. Berbah, Kab. Sleman, DIY 55573</p></div></div>
+        <div class="krow"><div class="kicon"><i class="fa-solid fa-phone"></i></div><div><h5>TELEPON</h5><p>(0274) 497-1234</p></div></div>
+        <div class="krow"><div class="kicon"><i class="fa-solid fa-envelope"></i></div><div><h5>EMAIL</h5><p>devsleman@sendangtirtosid.slemankab.go.id</p></div></div>
+        <div class="krow"><div class="kicon"><i class="fa-solid fa-globe"></i></div><div><h5>WEBSITE</h5><p>sendangtirtosid.slemankab.go.id</p></div></div>
+        <div class="krow"><div class="kicon"><i class="fa-solid fa-clock"></i></div><div><h5>JAM PELAYANAN</h5><p>Senin–Jumat: 08.00 – 15.30 WIB<br/>Istirahat: 12.00 – 13.00 WIB</p></div></div>
+      </div>
+      
+      <div class="kform fu fu-d1">
+        <h3>Kirim Pesan / Pengaduan</h3>
+
+        <div id="alert-sukses" class="success-alert">
+          Pesan Anda berhasil dikirim!
+        </div>
+
+        <form id="formKontak" novalidate>
+          <div class="fg-row">
+            <div class="fg">
+              <label>NAMA LENGKAP</label>
+              <input type="text" id="nama" placeholder="Nama sesuai KTP"/>
+              <div id="err-nama" class="error-msg">Nama wajib diisi!</div>
+            </div>
+            <div class="fg">
+              <label>NO. WHATSAPP</label>
+              <input type="tel" id="wa" placeholder="08xx-xxxx-xxxx"/>
+              <div id="err-wa" class="error-msg">Nomor WhatsApp wajib diisi!</div>
+            </div>
+          </div>
+          
+          <div class="fg">
+            <label>JENIS KEPERLUAN</label>
+            <select id="keperluan">
+              <option value="">-- Pilih --</option>
+              <option value="Layanan">Layanan Administrasi</option>
+              <option value="Pengaduan">Pengaduan Masyarakat</option>
+              <option value="Umum">Informasi Umum</option>
+              <option value="Saran">Saran & Masukan</option>
+            </select>
+            <div id="err-keperluan" class="error-msg">Silakan pilih jenis keperluan!</div>
+          </div>
+
+          <div class="fg">
+            <label>PESAN</label>
+            <textarea id="pesan" placeholder="Tuliskan pesan atau keperluan Anda..." rows="5"></textarea>
+            <div id="err-pesan" class="error-msg">Pesan tidak boleh kosong!</div>
+          </div>
+
+          <button type="submit" class="fsub">Kirim Pesan <i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="beranda-copy.html">Beranda</a>
+        <a href="../statistik.php">Statistik</a>
+        <a href="../struktur.php">Struktur</a>
+        <a href="../layanan.php">Layanan</a>
+        <a href="../berita.php">Berita</a>
+        <a href="pengumuman-copy.html">Pengumuman</a>
+        <a href="kontak-copy.html">Kontak</a>
+    </div>
+    <p>© 2026 <strong>Kalurahan Sendangtirto</strong> · Kapanewon Berbah · Kabupaten Sleman · DIY<br/>
+    Website resmi pemerintah kalurahan. Dibangun untuk peningkatan pelayanan publik berbasis digital.</p>
+</footer>
+
+<script>
+/* ==========================================================================
+   navbar.js
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const elemenNavbar = document.querySelector('.navbar');
+  const tombolMenuMobile = document.querySelector('.nav-toggle');
+  const laciNavigasiMobile = document.querySelector('.nav-drawer');
+  const latarBelakangGelap = document.querySelector('.nav-overlay');
+
+  function bukaMenuNavigasi() {
+    tombolMenuMobile.classList.add('open');
+    laciNavigasiMobile.classList.add('open');
+    latarBelakangGelap.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function tutupMenuNavigasi() {
+    tombolMenuMobile.classList.remove('open');
+    laciNavigasiMobile.classList.remove('open');
+    latarBelakangGelap.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  if (tombolMenuMobile) {
+    tombolMenuMobile.addEventListener('click', () => {
+      const sedangTerbuka = laciNavigasiMobile.classList.contains('open');
+      sedangTerbuka ? tutupMenuNavigasi() : bukaMenuNavigasi();
+    });
+  }
+
+  if (latarBelakangGelap) {
+    latarBelakangGelap.addEventListener('click', tutupMenuNavigasi);
+  }
+
+  if (laciNavigasiMobile) {
+    laciNavigasiMobile.querySelectorAll('a').forEach(tautan => {
+      tautan.addEventListener('click', tutupMenuNavigasi);
+    });
+  }
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      elemenNavbar && elemenNavbar.classList.add('scrolled');
+    } else {
+      elemenNavbar && elemenNavbar.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  const namaHalamanSaatIni = window.location.pathname.split('/').pop() || 'kontak-copy.html';
+  const semuaTautanNavigasi = document.querySelectorAll('.nav-menu a, .nav-drawer a');
+  semuaTautanNavigasi.forEach(tautan => {
+    const alamatTautan = tautan.getAttribute('href');
+    if (alamatTautan && (alamatTautan === namaHalamanSaatIni || alamatTautan.endsWith(namaHalamanSaatIni))) {
+      tautan.classList.add('active');
+    }
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(tautanLompat => {
+    tautanLompat.addEventListener('click', kejadian => {
+      const elemenTarget = document.querySelector(tautanLompat.getAttribute('href'));
+      if (elemenTarget) {
+        kejadian.preventDefault();
+        const tinggiNavbar = 72;
+        const posisiTujuan = elemenTarget.getBoundingClientRect().top + window.scrollY - tinggiNavbar;
+        window.scrollTo({ top: posisiTujuan, behavior: 'smooth' });
+      }
+    });
+  });
+});
+</script>
+
+<script>
+/* ==========================================================================
+   animations.js
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const semuaElemenMunculPerlahan = document.querySelectorAll('.fu');
+
+  if (semuaElemenMunculPerlahan.length > 0) {
+    const pengawasMunculanElemen = new IntersectionObserver((daftarDeteksi) => {
+      daftarDeteksi.forEach(hasilDeteksi => {
+        if (hasilDeteksi.isIntersecting) {
+          hasilDeteksi.target.classList.add('vis');
+          pengawasMunculanElemen.unobserve(hasilDeteksi.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    semuaElemenMunculPerlahan.forEach(elemen => pengawasMunculanElemen.observe(elemen));
+  }
+
+  function jalankanAnimasiHitungAngka(elemenTujuan) {
+    const angkaTarget = parseFloat(elemenTujuan.dataset.target);
+    const apakahAngkaDesimal = elemenTujuan.dataset.float === 'true';
+    const akhiranTeks = elemenTujuan.dataset.suffix || '';
+    
+    const durasiAnimasi = 1800;
+    const jumlahLangkah = durasiAnimasi / 16;
+    const nilaiPenambahan = angkaTarget / jumlahLangkah;
+    let angkaSaatIni = 0;
+
+    const pengaturWaktuInterval = setInterval(() => {
+      angkaSaatIni = Math.min(angkaSaatIni + nilaiPenambahan, angkaTarget);
+
+      if (apakahAngkaDesimal) {
+        elemenTujuan.textContent = angkaSaatIni.toFixed(1) + akhiranTeks;
+      } else {
+        elemenTujuan.textContent = Math.floor(angkaSaatIni).toLocaleString('id') + akhiranTeks;
+      }
+
+      if (angkaSaatIni >= angkaTarget) {
+        clearInterval(pengaturWaktuInterval);
+      }
+    }, 16);
+  }
+
+  const semuaElemenAngkaMeningkat = document.querySelectorAll('[data-target]');
+
+  if (semuaElemenAngkaMeningkat.length > 0) {
+    const pengawasAnimasiAngka = new IntersectionObserver((daftarDeteksi) => {
+      daftarDeteksi.forEach(hasilDeteksi => {
+        if (hasilDeteksi.isIntersecting) {
+          jalankanAnimasiHitungAngka(hasilDeteksi.target);
+          pengawasAnimasiAngka.unobserve(hasilDeteksi.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    semuaElemenAngkaMeningkat.forEach(elemen => pengawasAnimasiAngka.observe(elemen));
+  }
+
+  document.querySelectorAll('.auto-stagger').forEach(elemenInduk => {
+    const semuaElemenAnak = elemenInduk.querySelectorAll('.fu');
+    semuaElemenAnak.forEach((elemenAnakTunggal, indeksUrutan) => {
+      elemenAnakTunggal.style.transitionDelay = `${indeksUrutan * 0.08}s`;
+    });
+  });
+});
+</script>
+
+<script>
+/* ==========================================================================
+   kontak-copy.html Validation Logic
+   ========================================================================== */
+const formulirKontak = document.getElementById("formKontak");
+const kotakPemberitahuanSukses = document.getElementById("alert-sukses");
+
+// Fungsi helper untuk memeriksa validitas isian input form (apakah kosong atau tidak)
+function periksaValiditasInput(idElemenInput, idElemenError) {
+  // Ambil elemen input HTML berdasarkan ID yang dilewatkan
+  const elemenInput = document.getElementById(idElemenInput);
+  // Ambil elemen pesan error HTML berdasarkan ID yang dilewatkan
+  const elemenError = document.getElementById(idElemenError);
+
+  // Periksa apakah nilai isian input setelah dihapus spasi kosongnya bernilai kosong
+  if (elemenInput.value.trim() === "") {
+    // Tambahkan kelas CSS 'invalid' untuk memberi bingkai merah pada input
+    elemenInput.classList.add("invalid");
+    // Tampilkan elemen pesan error di layar dengan mengubah properti display menjadi block
+    elemenError.style.display = "block";
+    // Kembalikan nilai false yang menandakan input tidak valid (kosong)
+    return false;
+  } else {
+    // Hapus kelas CSS 'invalid' agar tampilan input kembali normal
+    elemenInput.classList.remove("invalid");
+    // Sembunyikan kembali elemen pesan error dari layar
+    elemenError.style.display = "none";
+    // Kembalikan nilai true yang menandakan input valid (terisi)
+    return true;
+  }
+}
+
+// Menambahkan event listener saat formulir dikirimkan (submit) oleh pengguna
+formulirKontak.addEventListener("submit", function (kejadianSubmit) {
+  // Mencegah tindakan bawaan browser yang akan memuat ulang (reload) halaman
+  kejadianSubmit.preventDefault();
+
+  // Memeriksa validitas input nama lengkap dan menyimpan hasilnya
+  const apakahNamaValid = periksaValiditasInput("nama", "err-nama");
+  // Memeriksa validitas input nomor WhatsApp dan menyimpan hasilnya
+  const apakahWaValid = periksaValiditasInput("wa", "err-wa");
+  // Memeriksa validitas pilihan jenis keperluan dan menyimpan hasilnya
+  const apakahKeperluanValid = periksaValiditasInput("keperluan", "err-keperluan");
+  // Memeriksa validitas input isi pesan dan menyimpan hasilnya
+  const apakahPesanValid = periksaValiditasInput("pesan", "err-pesan");
+
+  // Periksa apakah semua isian form bernilai valid (true)
+  if (apakahNamaValid && apakahWaValid && apakahKeperluanValid && apakahPesanValid) {
+    // Tampilkan kotak pemberitahuan sukses pengiriman pesan ke pengguna
+    kotakPemberitahuanSukses.style.display = "block";
+    // Bersihkan seluruh isian form agar kembali kosong seperti semula
+    formulirKontak.reset();
+
+    // Jalankan timer untuk menyembunyikan kotak pemberitahuan sukses setelah 4 detik
+    setTimeout(function () {
+      // Sembunyikan kotak pemberitahuan sukses pengiriman pesan
+      kotakPemberitahuanSukses.style.display = "none";
+    }, 4000);
+  }
+});
+</script>
+
+<script>
+/* ==========================================================================
+   automail.js (Inlined)
+   ========================================================================== */
+// Fungsi untuk membuka WhatsApp dengan pesan otomatis ketika tombol diklik
+function bukaLayananOnline(kejadian) {
+  // Mencegah tindakan default dari link agar tidak menggeser halaman ke atas
+  if (kejadian) {
+    kejadian.preventDefault();
+  }
+
+  // Nomor WhatsApp tujuan pelayanan desa (62 menggantikan angka 0 di awal nomor)
+  const nomorWhatsApp = "628562746055";
+
+  // Pesan teks otomatis yang akan langsung terisi di kolom obrolan WhatsApp
+  const pesanTeksOtomatis = "Halo, Idris selamat siang .....";
+
+  // Mengubah spasi dan karakter khusus pesan agar aman dikirim melalui link internet (URL Encoding)
+  const pesanTeksFormatUrl = encodeURIComponent(pesanTeksOtomatis);
+
+  // Menyusun link lengkap WhatsApp beserta nomor tujuan dan pesan teksnya
+  const tautanWhatsAppLengkap = `https://wa.me/${nomorWhatsApp}?text=${pesanTeksFormatUrl}`;
+
+  // Membuka tautan WhatsApp yang telah disusun di tab baru browser
+  window.open(tautanWhatsAppLengkap, "_blank");
+}
+</script>
+</body>
+</html>
