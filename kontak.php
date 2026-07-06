@@ -108,7 +108,7 @@
       </div>
     </div>
 
-    <!-- PETA LOKASI KANTOR KALURAHAN -->
+    <!-- map kelurahan -->
     <div class="map-card-container fu fu-d2">
       <div class="map-card">
         <div class="map-card-header">
@@ -131,77 +131,61 @@
 const formulirKontak = document.getElementById("formKontak");
 const kotakPemberitahuanSukses = document.getElementById("alert-sukses");
 
-// Fungsi helper untuk memeriksa validitas isian input form (apakah kosong atau tidak)
+// buat validasi form kosong apa nggak
 function periksaValiditasInput(idElemenInput, idElemenError) {
-  // Ambil elemen input HTML berdasarkan ID yang dilewatkan
+  // ambil elemen input di html sama pesan errornya
   const elemenInput = document.getElementById(idElemenInput);
-  // Ambil elemen pesan error HTML berdasarkan ID yang dilewatkan
   const elemenError = document.getElementById(idElemenError);
 
-  // Periksa apakah nilai isian input setelah dihapus spasi kosongnya bernilai kosong
+  // buat ngambil isi ketikan user, terus fungsi trim buat hapus spasi diujungnya. misal kosong ya blok if langsung jalam
   if (elemenInput.value.trim() === "") {
-    // Tambahkan kelas CSS 'invalid' untuk memberi bingkai merah pada input
-    elemenInput.classList.add("invalid");
-    // Tampilkan elemen pesan error di layar dengan mengubah properti display menjadi block
-    elemenError.style.display = "block";
-    // Kembalikan nilai false yang menandakan input tidak valid (kosong)
+    elemenInput.classList.add("invalid"); // nambahin css invalid biar border form nya merah
+    elemenError.style.display = "block"; // nampilin pesan error
     return false;
   } else {
-    // Hapus kelas CSS 'invalid' agar tampilan input kembali normal
     elemenInput.classList.remove("invalid");
-    // Sembunyikan kembali elemen pesan error dari layar
     elemenError.style.display = "none";
-    // Kembalikan nilai true yang menandakan input valid (terisi)
     return true;
   }
 }
 
-// Menambahkan event listener saat formulir dikirimkan (submit) oleh pengguna
+// bikin kondisi ketika disubmit sama biaar ngga relot
 formulirKontak.addEventListener("submit", function (kejadianSubmit) {
-  // Mencegah tindakan bawaan browser yang akan memuat ulang (reload) halaman
   kejadianSubmit.preventDefault();
 
-  // Memeriksa validitas input nama lengkap dan menyimpan hasilnya
+  // ngecek input sama nyimpen hasilnya
   const apakahNamaValid = periksaValiditasInput("nama", "err-nama");
-  // Memeriksa validitas input nomor WhatsApp dan menyimpan hasilnya
   const apakahWaValid = periksaValiditasInput("wa", "err-wa");
-  // Memeriksa validitas pilihan jenis keperluan dan menyimpan hasilnya
   const apakahKeperluanValid = periksaValiditasInput("keperluan", "err-keperluan");
-  // Memeriksa validitas input isi pesan dan menyimpan hasilnya
   const apakahPesanValid = periksaValiditasInput("pesan", "err-pesan");
 
-  // Periksa apakah semua isian form bernilai valid (true)
+  // ngecek inputnya valid semua nggak
   if (apakahNamaValid && apakahWaValid && apakahKeperluanValid && apakahPesanValid) {
-    // Tampilkan kotak pemberitahuan sukses pengiriman pesan ke pengguna
     kotakPemberitahuanSukses.style.display = "block";
-    // Bersihkan seluruh isian form agar kembali kosong seperti semula
-    formulirKontak.reset();
+    formulirKontak.reset(); // kosongin form kalau bener
 
-    // Jalankan timer untuk menyembunyikan kotak pemberitahuan sukses setelah 4 detik
+    // jalanin time out buat sembunyiin alert 
     setTimeout(function () {
-      // Sembunyikan kotak pemberitahuan sukses pengiriman pesan
       kotakPemberitahuanSukses.style.display = "none";
     }, 4000);
   }
 });
 
-// Fungsi untuk memuat dan menginisialisasi Google Maps secara dinamis
 function inisialisasiPeta() {
-  // Titik koordinat Kantor Kalurahan Sendangtirto
+  // nyimpen koordinat kantor kelurahan
   const lokasiKantor = { lat: -7.820570, lng: 110.430436 };
-  
-  // Membuat objek peta baru pada elemen dengan id 'map'
+  // bikin objek peta atau pd wae nambahin pustaka google map
   const peta = new google.maps.Map(document.getElementById("map"), {
-    zoom: 16, // Tingkat perbesaran peta
-    center: lokasiKantor, // Pusat peta
-    mapTypeId: 'roadmap', // Memaksa tampilan 2D Roadmap (Peta Jalan)
-    tilt: 0, // Menonaktifkan kemiringan untuk tampilan 2D datar penuh
-    mapTypeControl: false, // Menyembunyikan tombol ganti tipe peta agar minimalis
-    streetViewControl: false, // Menyembunyikan tombol Street View
-    fullscreenControl: true, // Izinkan tombol layar penuh
+    zoom: 16, // size map
+    center: lokasiKantor,
+    mapTypeId: 'roadmap',
+    tilt: 0,
+    mapTypeControl: false,
+    streetViewControl: false,
+    fullscreenControl: true,
   });
 
-  // Membuat penanda (marker) pada peta
+  // nambahke marker lokasi ngambang
   const penanda = new google.maps.Marker({
     position: lokasiKantor,
     map: peta,
@@ -209,7 +193,7 @@ function inisialisasiPeta() {
     animation: google.maps.Animation.DROP
   });
 
-  // Jendela informasi kecil yang muncul saat penanda di-klik
+  // ini pop up info lokasi pas di klik icon google map
   const jendelaInformasi = new google.maps.InfoWindow({
     content: `
       <div style="font-family: 'Plus Jakarta Sans', sans-serif; padding: 6px; max-width: 250px;">
@@ -219,20 +203,20 @@ function inisialisasiPeta() {
     `
   });
 
-  // Event listener saat penanda diklik untuk menampilkan jendela informasi
+  // biar fungsi penanda dama jendela info mau jalan pas di klik
   penanda.addListener("click", function() {
     jendelaInformasi.open(peta, penanda);
   });
 }
 
-// Daftarkan fungsi ke jendela global agar dapat diakses oleh callback Google Maps
+// biar ngga inisialisasiPeta is not a function
 window.inisialisasiPeta = inisialisasiPeta;
 
-//Validasi Kontak Termuat
+// nggak penting buat tugas biar ada yang di commit
 console.log("Sistem Validasi dan Formulir serta API Google Map Berhasil digunakan")
 </script>
 
-<!-- Script API Google Maps dengan Kunci API yang Disediakan -->
+<!-- biar fungsi inisiasi map mau jalan pakau API nya -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy3X_yxER30dO1yjukHgbLuYV9uzrTdRQ&callback=inisialisasiPeta" async defer></script>
 
 </body>
