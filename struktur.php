@@ -65,17 +65,17 @@
             <div class="ocard-name">Agung Prihattanto</div>
             <div class="ocard-role">Kasi Pemerintahan</div>
           </div>
-          <div class="ocard" onclick="showDetail('kesra')">
+          <div class="ocard" onclick="tampilkanDetailAparatur('kesra')">
             <div class="ocard-avatar"><i class="fa-solid fa-handshake"></i></div>
             <div class="ocard-name">Haryanti, S.Sos</div>
             <div class="ocard-role">Kasi Kesra</div>
           </div>
-          <div class="ocard" onclick="showDetail('pelayanan')">
+          <div class="ocard" onclick="tampilkanDetailAparatur('pelayanan')">
             <div class="ocard-avatar"><i class="fa-solid fa-clipboard-list"></i></div>
-            <div class="ocard-name">Budi Santoso</div>
+            <div class="ocard-name">Idris Abdullah, Amd.Kom</div>
             <div class="ocard-role">Kasi Pelayanan</div>
           </div>
-          <div class="ocard" onclick="showDetail('keuangan')">
+          <div class="ocard" onclick="tampilkanDetailAparatur('keuangan')">
             <div class="ocard-avatar"><i class="fa-solid fa-coins"></i></div>
             <div class="ocard-name">Retno Wulandari</div>
             <div class="ocard-role">Kaur Keuangan</div>
@@ -132,13 +132,13 @@
 <script src="js/navbar.js"></script>
 <script src="js/animations.js"></script>
 <script>
-// Objek data berisi profil lengkap aparatur desa
+// buat nyimpen data, database lokalnya soalnya ngga pakai DB 
 const dataAparaturOrganisasi = {
   lurah:       { name:'Sardjono, S.IP',        role:'Lurah Sendangtirto',      desc:'Memimpin penyelenggaraan urusan pemerintahan, pembangunan, dan kemasyarakatan. Bertanggung jawab kepada Camat Kapanewon Berbah atas seluruh jalannya roda pemerintahan kalurahan.', nip:'19680512 199203 1 002', edu:'S1 Ilmu Pemerintahan', since:'2016' },
   sekretaris:  { name:'Dra. Sri Mulyani',       role:'Sekretaris Kalurahan',    desc:'Membantu Lurah dalam bidang administrasi pemerintahan dan mengkoordinasikan tugas antar seksi. Bertanggung jawab atas ketertiban arsip dan administrasi kalurahan.', nip:'19720304 200003 2 004', edu:'S1 Administrasi Negara', since:'2012' },
   pemerintahan:{ name:'Agung Prihattanto',       role:'Kasi Pemerintahan',      desc:'Melaksanakan urusan pemerintahan umum, pembinaan ketertiban, penegakan peraturan, dan pelaporan data kependudukan wilayah.', nip:'19850721 201001 1 003', edu:'S1 Hukum', since:'2020' },
   kesra:       { name:'Haryanti, S.Sos',         role:'Kasi Kesejahteraan Rakyat', desc:'Mengurus bidang sosial, keagamaan, pendidikan, kesehatan, dan pemberdayaan masyarakat termasuk pengelolaan BLT-DD dan program PKK.', nip:'19790610 200604 2 005', edu:'S1 Sosiologi', since:'2015' },
-  pelayanan:   { name:'Budi Santoso',            role:'Kasi Pelayanan Umum',    desc:'Menangani pelayanan administrasi kependudukan, surat-menyurat, dan seluruh layanan umum kepada masyarakat di loket pelayanan.', nip:'19811203 200903 1 001', edu:'D3 Administrasi', since:'2018' },
+  pelayanan:   { name:'Idris Abdullah, Amd.Kom',            role:'Kasi Pelayanan Umum',    desc:'Menangani pelayanan administrasi kependudukan, surat-menyurat, dan seluruh layanan umum kepada masyarakat di loket pelayanan.', nip:'19811203 200903 1 001', edu:'D3 Manajemen Informatika', since:'2025' },
   keuangan:    { name:'Retno Wulandari',         role:'Kaur Keuangan',          desc:'Mengurus tata laksana keuangan kalurahan, pembukuan, verifikasi, pelaporan keuangan, dan administrasi APBKal (Anggaran Pendapatan dan Belanja Kalurahan).', nip:'19900815 201404 2 002', edu:'S1 Akuntansi', since:'2019' },
   staf1:       { name:'Awan Prabowo',            role:'Dukuh Dawukan',          desc:'Membantu Lurah di tingkat padukuhan Dawukan, melaksanakan urusan pemerintahan dan pelayanan kemasyarakatan di wilayah padukuhan.', nip:'–', edu:'SMA/SMK', since:'2020' },
   staf2:       { name:'Slamet Riyadi',           role:'Dukuh Karang',           desc:'Membantu Lurah di tingkat padukuhan Karang dalam pelaksanaan urusan pemerintahan dan kemasyarakatan.', nip:'–', edu:'SMA/SMK', since:'2018' },
@@ -147,15 +147,15 @@ const dataAparaturOrganisasi = {
   staf5:       { name:'Tri Wibowo',              role:'Staf Administrasi',      desc:'Membantu operasional administrasi harian kantor kalurahan, meliputi surat masuk, surat keluar, dan pengelolaan arsip digital.', nip:'–', edu:'D3 Administrasi', since:'2021' },
 };
 
-// Fungsi untuk menampilkan panel detail informasi jabatan saat kartu di-klik
+// fungsi buat ngambil parameter kuncijawaban dari html didalam kurung dari on clivk
 function tampilkanDetailAparatur(kunciJabatan) {
-  // Mengambil objek data aparatur berdasarkan kunci jabatan yang dikirimkan
+  // buat nyocokin nama fungsi, iki dipakek buat nyimpen data anggota sementara
   const profilAparatur = dataAparaturOrganisasi[kunciJabatan]; 
   
-  // Jika profil tidak ditemukan, batalkan eksekusi
+  // nah sk iki buat validasi, nk gak cocok balik, kok ada return? ben gak error sebelum e error
   if (!profilAparatur) return;
   
-  // Masukkan data nama, jabatan, deskripsi tugas, NIP, pendidikan, dan masa menjabat ke masing-masing elemen HTML
+  // buat nganbil terus di ijek atau ditempel ke html bagian detail paling bawah 
   document.getElementById('od-name').textContent  = profilAparatur.name;
   document.getElementById('od-role').textContent  = profilAparatur.role;
   document.getElementById('od-desc').textContent  = profilAparatur.desc;
@@ -163,17 +163,17 @@ function tampilkanDetailAparatur(kunciJabatan) {
   document.getElementById('od-edu').textContent   = profilAparatur.edu;
   document.getElementById('od-since').textContent = profilAparatur.since;
   
-  // Mengambil elemen panel detail
+  // buat ngambil elemen kontener atau wadah panel detail
   const panelDetail = document.getElementById('org-detail');
-  
-  // Tambahkan kelas 'show' agar CSS menampilkan panel detail tersebut
+
+  // bagian ini buat nambahin class show pada .org-detail ben html e muncul
   panelDetail.classList.add('show');
   
-  // Buat efek scroll otomatis bergeser ke area panel detail agar terlihat langsung oleh pengguna
+  // buat bikin browser nunggu 50 milidetik trs scroll ke bagian detail waktu mucul 
   setTimeout(() => panelDetail.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
 }
 
-//Validasi data Termuat
+//validasi gak penting tapi nk ada y tetep gak penting, gaya gayaan tok biar ada yang di commit lagi bahan p24
 console.log("Data struktur berhasil dimuat")
 </script>
 </body>
