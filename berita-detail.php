@@ -41,19 +41,30 @@
         <div class="detail-divider"></div>
 
         <div class="detail-body">
-          <p><strong>SENDANGTIRTO</strong> – Senin (21/04) Pemerintah Kalurahan Sendangtirto menyelenggarakan program inovatif <em>Jempol Bapak</em> (Jemput Bola Bayar Pajak Bumi dan Bangunan) di Padukuhan Kadipolo dan Sribit. Program ini bertujuan mendekatkan layanan pembayaran PBB langsung ke tengah masyarakat, sehingga warga tidak perlu jauh-jauh datang ke kantor.</p>
+          <p><strong>SENDANGTIRTO</strong> – Senin (21/04) Pemerintah Kalurahan Sendangtirto menyelenggarakan program inovatif 
+          <em>Jempol Bapak</em> (Jemput Bola Bayar Pajak Bumi dan Bangunan) di Padukuhan Kadipolo dan Sribit. Program ini bertujuan 
+          mendekatkan layanan pembayaran PBB langsung ke tengah masyarakat, sehingga warga tidak perlu jauh-jauh datang ke kantor.</p>
 
-          <p>Kegiatan yang dimulai pukul 09.00 WIB ini dihadiri langsung oleh Lurah Sendangtirto, Sardjono, S.IP, beserta jajaran pamong kalurahan. Antusiasme warga cukup tinggi, terbukti dari banyaknya warga yang mendatangi meja layanan yang disiapkan di balai padukuhan setempat.</p>
+          <p>Kegiatan yang dimulai pukul 09.00 WIB ini dihadiri langsung oleh Lurah Sendangtirto, Sardjono, S.IP, 
+            beserta jajaran pamong kalurahan. Antusiasme warga cukup tinggi, terbukti dari banyaknya warga yang mendatangi meja 
+            layanan yang disiapkan di balai padukuhan setempat.</p>
 
           <h3>Latar Belakang Program</h3>
-          <p>Program Jempol Bapak lahir dari evaluasi tahun lalu di mana masih terdapat tunggakan PBB cukup signifikan di beberapa padukuhan. Lurah Sardjono menjelaskan bahwa salah satu penyebabnya adalah keterbatasan mobilitas warga, terutama lansia dan ibu rumah tangga, untuk datang langsung ke kantor pembayaran.</p>
+          <p>Program Jempol Bapak lahir dari evaluasi tahun lalu di mana masih terdapat tunggakan PBB cukup 
+            signifikan di beberapa padukuhan. Lurah Sardjono menjelaskan bahwa salah satu penyebabnya adalah keterbatasan mobilitas warga, 
+            terutama lansia dan ibu rumah tangga, untuk datang langsung ke kantor pembayaran.</p>
 
-          <p>"Dengan mendatangi langsung ke padukuhan, kami berharap angka tunggakan PBB bisa berkurang dan target penerimaan pajak tahun ini bisa tercapai. Ini juga bagian dari komitmen kami untuk memberikan pelayanan yang semakin dekat kepada masyarakat," ujar Lurah Sardjono.</p>
+          <p>"Dengan mendatangi langsung ke padukuhan, kami berharap angka tunggakan PBB bisa berkurang dan 
+            target penerimaan pajak tahun ini bisa tercapai. Ini juga bagian dari komitmen kami untuk memberikan pelayanan 
+            yang semakin dekat kepada masyarakat," ujar Lurah Sardjono.</p>
 
           <h3>Rencana Pelaksanaan Selanjutnya</h3>
-          <p>Program Jempol Bapak rencananya akan diselenggarakan secara berkelanjutan di seluruh 14 padukuhan di wilayah Kalurahan Sendangtirto hingga akhir tahun 2026. Jadwal pelaksanaan di setiap padukuhan akan diinformasikan melalui pengumuman resmi dari masing-masing dukuh.</p>
+          <p>Program Jempol Bapak rencananya akan diselenggarakan secara berkelanjutan di seluruh 14 padukuhan di 
+            wilayah Kalurahan Sendangtirto hingga akhir tahun 2026. Jadwal pelaksanaan di setiap padukuhan akan 
+            diinformasikan melalui pengumuman resmi dari masing-masing dukuh.</p>
 
-          <p>Warga yang membutuhkan informasi lebih lanjut mengenai program ini dapat menghubungi kantor Kalurahan Sendangtirto di nomor (0274) 497-1234 pada jam kerja.</p>
+          <p>Warga yang membutuhkan informasi lebih lanjut mengenai program ini dapat menghubungi kantor Kalurahan 
+            Sendangtirto di nomor (0274) 497-1234 pada jam kerja.</p>
         </div>
 
         <div class="detail-divider"></div>
