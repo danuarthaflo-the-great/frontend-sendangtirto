@@ -5,23 +5,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Hubungi Kami – Kalurahan Sendangtirto</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-  <link rel="stylesheet" href="css/main.css?v=1.3"/>
-  <link rel="stylesheet" href="css/navbar.css?v=1.3"/>
-  <link rel="stylesheet" href="css/components.css?v=1.3"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/navbar.css"/>
+  <link rel="stylesheet" href="css/components.css"/>
   <style>
-    /* Gaya pesan error (Merah) */
+    /* kalau error */
     .error-msg {
       color: #dc2626;
       font-size: 12px;
       margin-top: 4px;
       display: none;
     }
-    /* Gaya input saat salah */
+    /* input salah */
     .invalid {
       border-color: #dc2626 !important;
       background-color: #fef2f2 !important;
     }
-    /* Gaya alert sukses (Hijau) */
+    /* notif sukses */
     .success-alert {
       background-color: #dcfce7;
       color: #15803d;
