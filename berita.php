@@ -178,153 +178,114 @@
 <script src="js/navbar.js"></script>
 <script src="js/animations.js"></script>
 <script>
-// Variabel global untuk menyimpan status aktif pencarian, kategori, dan halaman
 let kategoriAktif = "semua";
 let halamanAktif = 1;
 const jumlahItemPerHalaman = 6;
 
-// Fungsi utama untuk menyaring data berita dan mengelola paginasi secara dinamis
+// buat nyaring data berita sama bikin indeks
 function perbaruiTampilanBerita() {
-  // Ambil nilai kata kunci dari kolom input pencarian secara realtime
-  const kataKunciCari = document.getElementById('searchInput').value.toLowerCase().trim();
-  // Ambil semua elemen kartu berita di dalam grid berita
-  const kumpulanKartu = document.querySelectorAll('#beritaGrid .blist-card');
+  const kataKunciCari = document.getElementById('searchInput').value.toLowerCase().trim(); // ambil input
+  const kumpulanKartu = document.querySelectorAll('#beritaGrid .blist-card'); // ambil card berita dari grid
   
-  // Array untuk menyimpan kartu-kartu berita yang cocok dengan kriteria filter dan pencarian
-  const kartuCocok = [];
+  const kartuCocok = []; // buat naruh card berita yang udah difilter, makane nilai di kosongi
 
-  // Lakukan perulangan untuk mengecek kecocokan kategori dan kata kunci pada setiap kartu
   kumpulanKartu.forEach(kartu => {
-    // Cek kecocokan kategori kartu dengan kategori aktif yang dipilih pengguna
+    // nyocokin card kategori sama kategori aktif
     const apakahKategoriCocok = kategoriAktif === "semua" || kartu.dataset.kategori === kategoriAktif;
-    // Ambil isi teks dari kartu berita untuk dicocokkan dengan kata kunci pencarian
-    const isiTeksKartu = kartu.textContent.toLowerCase();
-    // Cek apakah isi teks kartu mengandung kata kunci pencarian yang dimasukkan pengguna
-    const apakahKataKunciCocok = !kataKunciCari || isiTeksKartu.includes(kataKunciCari);
-
-    // Jika kartu memenuhi kedua kriteria saringan tersebut
+    const isiTeksKartu = kartu.textContent.toLowerCase(); // ambil isi teks dari card berita untuk dicocokkin dengan pencarian
+    
+    const apakahKataKunciCocok = !kataKunciCari || isiTeksKartu.includes(kataKunciCari); // cek misal isi teks card ada kata kunci pencarian yang dimasukkan pengguna
+    
     if (apakahKategoriCocok && apakahKataKunciCocok) {
-      // Masukkan kartu yang cocok ke dalam array penampung
-      kartuCocok.push(kartu);
+      kartuCocok.push(kartu); // card ditmpung ke array
     } else {
-      // Jika tidak cocok, langsung sembunyikan kartu tersebut dari layar
       kartu.style.display = "none";
     }
   });
 
-  // Hitung total halaman yang dibutuhkan berdasarkan jumlah kartu yang cocok dibagi jumlah item per halaman
+  // hitung card berdasarkan card dibagi jumlah item per halaman
   const totalHalaman = Math.ceil(kartuCocok.length / jumlahItemPerHalaman);
-
-  // Jika halaman aktif yang saat ini dipilih melebihi total halaman yang tersedia
   if (halamanAktif > totalHalaman) {
-    // Reset halaman aktif kembali ke halaman pertama
     halamanAktif = 1;
   }
 
-  // Tentukan indeks awal dan indeks akhir kartu yang akan ditampilkan di halaman saat ini
   const indeksAwal = (halamanAktif - 1) * jumlahItemPerHalaman;
   const indeksAkhir = halamanAktif * jumlahItemPerHalaman;
 
-  // Lakukan perulangan pada kartu-kartu yang cocok untuk menampilkan kartu sesuai halaman aktif
+  // buat ngencek card yang udah difilter dan mau ditampilin
   kartuCocok.forEach((kartu, indeks) => {
     // Jika indeks kartu berada dalam rentang indeks halaman aktif saat ini
     if (indeks >= indeksAwal && indeks < indeksAkhir) {
-      // Tampilkan kartu berita tersebut
-      kartu.style.display = "";
+      kartu.style.display = ""; // kalau benar atau kondisi dia true yo di tampilin dalam display
     } else {
-      // Sembunyikan kartu berita yang berada di luar halaman aktif
-      kartu.style.display = "none";
+      kartu.style.display = "none"; // nek engga disembuyiin
     }
   });
-
-  // Tampilkan atau sembunyikan pesan "Tidak ada berita" berdasarkan ada tidaknya kartu yang cocok
+  // buat ngecek panjang indek 0 atau engga jika iya atau true maka akan block dan noResult tampil kalau engga ya ngga tampil
   document.getElementById('noResult').style.display = kartuCocok.length === 0 ? "block" : "none";
 
-  // Perbarui tombol-tombol paginasi di layar secara dinamis
+  // panggil fungsi buat tombol sama kasil var totalhalaman ke fungsi tsb
   buatTombolPaginasi(totalHalaman);
 }
 
-// Fungsi untuk membuat tombol-tombol halaman (paginasi) secara dinamis
 function buatTombolPaginasi(totalHalaman) {
-  // Ambil elemen wadah tombol paginasi dari HTML
-  const wadahPaginasi = document.querySelector('.pagination');
-  // Bersihkan seluruh tombol halaman lama di dalam wadah
-  wadahPaginasi.innerHTML = "";
+  const wadahPaginasi = document.querySelector('.pagination'); // ambil elemen wadah pagination dari HTML
+  wadahPaginasi.innerHTML = ""; // bersihin pagination di html nya
 
-  // Jika total halaman hanya 1 atau kurang dari itu, sembunyikan atau tidak perlu tampilkan tombol paginasi
+  // jika total halaman kurang dari 1 atau muk 1 maka ngga ditampilin
   if (totalHalaman <= 1) {
-    // Hentikan fungsi karena paginasi tidak diperlukan
-    return;
+    return; // tak tambah return biar ga muncul, gapenting hehe
   }
 
-  // Lakukan perulangan sebanyak total halaman untuk menggambar tombol angka
+  // bikin loop kalau lolos validasi diatas atau indek/halaman lebih dari 1 / totalhalaman 2 atau lebih
   for (let i = 1; i <= totalHalaman; i++) {
-    // Buat elemen tombol baru di memori
-    const tombolHalaman = document.createElement('button');
-    // Berikan kelas CSS '.page-btn' pada tombol tersebut
+    const tombolHalaman = document.createElement('button'); // buat tombol baru
     tombolHalaman.className = "page-btn";
-    // Tulis angka halaman di dalam tombol
-    tombolHalaman.textContent = i;
+    
+    tombolHalaman.textContent = i; // injek angka halaman pada tombol sesuai dengan i= , misal e nilai i=2 ya angka button e 2
 
-    // Jika angka tombol sama dengan halaman aktif saat ini
+    // validasi tombol aktif sesuai halaman
     if (i === halamanAktif) {
-      // Tambahkan kelas '.active' agar tombol memiliki tampilan aktif/berwarna
       tombolHalaman.classList.add('active');
     }
 
-    // Daftarkan aksi klik pada tombol halaman baru tersebut
+    // bikin event ketika tombol di klik
     tombolHalaman.addEventListener('click', () => {
-      // Ubah status halaman aktif ke halaman yang di-klik
-      halamanAktif = i;
-      // Perbarui tampilan berita sesuai dengan halaman baru
+      halamanAktif = i; // ubah halaman aktif menjadi i saat diklik
       perbaruiTampilanBerita();
-      // Gulirkan layar ke atas area daftar berita secara halus agar perubahan halaman langsung terlihat
       document.getElementById('filterTabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
-    // Masukkan tombol halaman baru ke dalam wadah paginasi di HTML
-    wadahPaginasi.appendChild(tombolHalaman);
+    
+    wadahPaginasi.appendChild(tombolHalaman); // injek tombol baru ke html
   }
 }
 
-// Fungsi pembungkus (wrapper) untuk menyaring kategori berita saat tab kategori di-klik
 function saringKategoriBerita(kategoriPilihan, tombolPilihan) {
-  // Ambil semua tombol kategori tab filter
   document.querySelectorAll('.filter-tab').forEach(tombolTab => {
-    // Hapus kelas 'active' dari semua tab kategori
     tombolTab.classList.remove('active');
   });
-  // Tambahkan kelas 'active' ke tombol kategori yang baru saja di-klik
-  tombolPilihan.classList.add('active');
+  tombolPilihan.classList.add('active'); // tambah css active buat tombol yang di klik
   
-  // Ubah status kategori aktif sesuai pilihan pengguna
-  kategoriAktif = kategoriPilihan;
-  // Reset halaman aktif ke halaman 1 setiap kali kategori diubah
+  kategoriAktif = kategoriPilihan; // bikin supaya kategori yang aktif nilai nya sama kayak kategori yang dipilih
   halamanAktif = 1;
-  // Jalankan fungsi utama perbaruan tampilan berita
   perbaruiTampilanBerita();
 }
 
-// Fungsi pembungkus (wrapper) untuk pencarian berita saat tombol cari di-klik
 function lakukanPencarianBerita() {
-  // Reset halaman aktif ke halaman 1 setiap kali melakukan pencarian baru
   halamanAktif = 1;
-  // Jalankan fungsi utama perbaruan tampilan berita
   perbaruiTampilanBerita();
 }
 
-// Menambahkan event listener keyboard pada input pencarian
+// nambahin event pada input pencarian
 document.getElementById('searchInput').addEventListener('keydown', e => {
-  // Jika tombol yang ditekan oleh pengguna adalah tombol Enter
   if (e.key === 'Enter') {
-    // Jalankan fungsi pencarian berita
     lakukanPencarianBerita();
   }
 });
 
 // Jalankan perbaruan tampilan berita untuk pertama kali saat halaman selesai dimuat browser
 document.addEventListener('DOMContentLoaded', () => {
-  // Panggil fungsi utama perbaruan tampilan berita
   perbaruiTampilanBerita();
 });
 </script>
