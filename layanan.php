@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Layanan Administrasi – Kalurahan Sendangtirto</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-  <link rel="stylesheet" href="css/main.css?v=1.3"/>
-  <link rel="stylesheet" href="css/navbar.css?v=1.3"/>
-  <link rel="stylesheet" href="css/components.css?v=1.3"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/navbar.css"/>
+  <link rel="stylesheet" href="css/components.css"/>
   <style>
-    /* Layanan detail card */
     .req-list { margin-top: 12px; padding-left: 0; }
     .req-list li {
       display: flex; gap: 10px; align-items: flex-start;

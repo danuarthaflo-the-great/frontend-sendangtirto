@@ -6,9 +6,9 @@
   <title>Kalurahan Sendangtirto – SAKINAH</title>
   <meta name="description" content="Portal resmi Kalurahan Sendangtirto, Kapanewon Berbah, Kabupaten Sleman, DIY."/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-  <link rel="stylesheet" href="css/main.css?v=1.3"/>
-  <link rel="stylesheet" href="css/navbar.css?v=1.3"/>
-  <link rel="stylesheet" href="css/components.css?v=1.3"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/navbar.css"/>
+  <link rel="stylesheet" href="css/components.css"/>
 </head>
 <body>
 
