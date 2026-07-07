@@ -13,9 +13,7 @@ function bukaLayananOnline(kejadian) {
 
   // bikin url endcoding biar aman aja
   const pesanTeksFormatUrl = encodeURIComponent(pesanTeksOtomatis);
-  // bikin link sama defaut pesan
-  const tautanWhatsAppLengkap = `https://wa.me/${nomorWhatsApp}?text=${pesanTeksFormatUrl}`;
-
+  const tautanWhatsAppLengkap = `https://wa.me/${nomorWhatsApp}?text=${pesanTeksFormatUrl}`;// bikin link sama defaut pesan
   // bukan link dama tab baru
   window.open(tautanWhatsAppLengkap, "_blank");
 }
